@@ -1,0 +1,110 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    versionCatalogs {
+        libs {
+
+            // Default android dependencies
+            version('androidCoreVersion', '1.9.0')
+            version('appCompatVersion', '1.6.0')
+            version('materialVersion', '1.7.0')
+            version('constraintlayoutVersion', '2.1.4')
+            library('android-core', 'androidx.core', 'core-ktx').versionRef('androidCoreVersion')
+            library('app-compat', 'androidx.appcompat', 'appcompat').versionRef('appCompatVersion')
+            library('material', 'com.google.android.material', 'material').versionRef('materialVersion')
+            library('constraint-layout', 'androidx.constraintlayout', 'constraintlayout').versionRef('constraintlayoutVersion')
+
+            // Kotlin extensions for android artifacts
+            version('fragmentVersion', '1.5.5')
+            version('lifecycleVersion', '2.5.1')
+            library('fragment', 'androidx.fragment', 'fragment-ktx').versionRef('fragmentVersion')
+            library('lifecycle-runtime', 'androidx.lifecycle', 'lifecycle-runtime-ktx').versionRef('lifecycleVersion')
+            library('lifecycle-viewmodel', 'androidx.lifecycle', 'lifecycle-viewmodel-ktx').versionRef('lifecycleVersion')
+
+            bundle('android', ['android-core', 'app-compat', 'material', 'constraint-layout', 'fragment', 'lifecycle-runtime', 'lifecycle-viewmodel'])
+
+
+            // Navigation
+            version('navigationVersion', '2.5.3')
+            library('navigation-runtime', 'androidx.navigation', 'navigation-runtime-ktx').versionRef('navigationVersion')
+            library('navigation-fragment', 'androidx.navigation', 'navigation-fragment-ktx').versionRef('navigationVersion')
+            library('navigation-ui', 'androidx.navigation', 'navigation-ui-ktx').versionRef('navigationVersion')
+            library('navigation-classpath', 'androidx.navigation', 'navigation-safe-args-gradle-plugin').versionRef('navigationVersion')
+
+            bundle('android-navigation', ['navigation-runtime', 'navigation-fragment', 'navigation-ui'])
+
+
+            // Hilt dependencies
+            version('hiltVersion', '2.44.2')
+            library('hilt-android', 'com.google.dagger', 'hilt-android').versionRef('hiltVersion')
+            library('hilt-kapt', 'com.google.dagger', 'hilt-compiler').versionRef('hiltVersion')
+
+
+            // Network - Retrofit, Moshi, OkHttp
+            version('retrofitVersion', '2.9.0')
+            version('moshiVersion', '1.14.0')
+            version('okHttpVersion', '4.10.0')
+            library('retrofit', 'com.squareup.retrofit2', 'retrofit').versionRef('retrofitVersion')
+            library('retrofit-moshi', 'com.squareup.retrofit2', 'converter-moshi').versionRef('retrofitVersion')
+            library('moshi', 'com.squareup.moshi', 'moshi').versionRef('moshiVersion')
+            library('moshi-kotlin', 'com.squareup.moshi', 'moshi-kotlin').versionRef('moshiVersion')
+            library('okhttp', 'com.squareup.okhttp3', 'okhttp').versionRef('okHttpVersion')
+            library('okhttp-loggger', 'com.squareup.okhttp3', 'logging-interceptor').versionRef('okHttpVersion')
+            library('okhttp-urlconnection', 'com.squareup.okhttp3', 'okhttp-urlconnection').versionRef('okHttpVersion')
+
+            bundle('retrofit', ['retrofit', 'retrofit-moshi', 'moshi', 'moshi-kotlin', 'okhttp', 'okhttp-loggger', 'okhttp-urlconnection'])
+
+
+            // DB - Room
+            version('roomVersion', '2.5.0')
+            library('room-runtime', 'androidx.room', 'room-runtime').versionRef('roomVersion')
+            library('room', 'androidx.room', 'room-ktx').versionRef('roomVersion')
+            library('room-kapt', 'androidx.room', 'room-compiler').versionRef('roomVersion')
+
+            bundle('room', ['room-runtime', 'room'])
+
+
+            // Image loader - Coil
+            version('coilVersion', '2.2.2')
+            library('coil', 'io.coil-kt', 'coil').versionRef('coilVersion')
+            library('coil-base', 'io.coil-kt', 'coil-base').versionRef('coilVersion')
+
+            bundle('coil', ['coil', 'coil-base'])
+
+
+            // Tests
+            version('junitVersion', '4.13.2')
+            version('mockkVersion', '1.13.3')
+            version('junitExtVersion', '1.1.5')
+            version('espressoVersion', '3.5.1')
+            library('junit', 'junit', 'junit').versionRef('junitVersion')
+            library('mockk', 'io.mockk', 'mockk').versionRef('mockkVersion')
+            library('junit-ext', 'androidx.test.ext', 'junit').versionRef('junitExtVersion')
+            library('espresso', 'androidx.test.espresso', 'espresso-core').versionRef('espressoVersion')
+
+            bundle('tests', ['junit', 'mockk'])
+            bundle('tests-android', ['junit-ext', 'espresso'])
+
+
+            // Logger - Timber
+            version('timberVersion', '5.0.1')
+            library('timber', 'com.jakewharton.timber', 'timber').versionRef('timberVersion')
+        }
+    }
+}
+rootProject.name = "HiltMultimoduleSample"
+include ':app'
+include ':core:common'
+include ':feature:screen_one'
+include ':feature:screen_two'

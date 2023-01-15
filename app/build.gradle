@@ -1,0 +1,92 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.dagger.hilt.android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+    id 'androidx.navigation.safeargs'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
+}
+
+kapt {
+    correctErrorTypes true
+}
+
+android {
+    namespace 'com.example.hiltmultimodulesample'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.example.hiltmultimodulesample"
+        minSdk 21
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation project(':feature:screen_one')
+    implementation project(':feature:screen_two')
+    implementation project(':core:common')
+
+    // Default android dependencies
+    implementation libs.bundles.android
+
+    // Navigation
+    implementation libs.bundles.android.navigation
+
+    // Hilt
+    implementation libs.hilt.android
+    kapt libs.hilt.kapt
+
+    // Network - Retrofit, Moshi, OkHttp
+    implementation libs.bundles.retrofit
+
+    // DB - Room
+    implementation libs.bundles.room
+    kapt libs.room.kapt
+
+    // Image loader - Coil
+    implementation libs.bundles.coil
+
+    // Tests
+    testImplementation libs.bundles.tests
+    androidTestImplementation libs.bundles.tests.android
+
+    // Logger - Timber
+    implementation libs.timber
+
+    // Firebase
+    implementation platform('com.google.firebase:firebase-bom:30.0.1')
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+}

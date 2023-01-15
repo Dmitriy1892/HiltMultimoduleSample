@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "929720677099",
+    "project_id": "hiltmultimodulesample",
+    "storage_bucket": "hiltmultimodulesample.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:929720677099:android:7194a9ed43b7d4f66a84ae",
+        "android_client_info": {
+          "package_name": "com.example.hiltmultimodulesample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "929720677099-u9cl2hl0tlqvgbl97hc4tr2ei1cphudc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgaOas9rpSKvgdQ62mayF0Pbu504gu3rA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "929720677099-u9cl2hl0tlqvgbl97hc4tr2ei1cphudc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
