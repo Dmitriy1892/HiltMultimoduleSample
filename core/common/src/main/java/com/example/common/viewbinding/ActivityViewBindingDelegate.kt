@@ -1,4 +1,4 @@
-package com.example.common.delegates
+package com.example.common.viewbinding
 
 import android.app.Activity
 import android.view.LayoutInflater

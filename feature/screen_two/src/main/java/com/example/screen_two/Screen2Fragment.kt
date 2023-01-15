@@ -3,7 +3,7 @@ package com.example.screen_two
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.example.common.delegates.viewBinding
+import com.example.common.viewbinding.viewBinding
 import com.example.screen_two.databinding.FragmentScreen2Binding
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject

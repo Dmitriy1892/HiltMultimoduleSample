@@ -3,8 +3,7 @@ package com.example.screen_one
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.example.common.delegates.viewBinding
-import com.example.screen_one.R
+import com.example.common.viewbinding.viewBinding
 import com.example.screen_one.databinding.FragmentScreen1Binding
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject

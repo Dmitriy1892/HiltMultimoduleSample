@@ -1,4 +1,4 @@
-package com.example.hiltmultimodulesample.delegates
+package com.example.common.viewbinding
 
 import androidx.lifecycle.*
 import androidx.viewbinding.ViewBinding
